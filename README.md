@@ -5,6 +5,8 @@ Advent of code 2022
 
 [https://adventofcode.com/](https://adventofcode.com/) 
 
+[day 2](https://adventofcode.com/2022/day/2)
+
 ## Building
 
 The project uses cmake to build.

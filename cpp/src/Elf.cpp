@@ -23,6 +23,16 @@ Elf::Elf(int c)
 }
 
 /**
+ * @brief 
+ * 
+ * @param rps 
+ */
+void Elf::addRockPaperScissors(char rps)
+{
+    rockPaperScissors.push_back(rps);
+}
+
+/**
  * @brief Add an entry with calories
  *
  * @param c
