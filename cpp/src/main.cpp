@@ -58,16 +58,30 @@ char mapToRPS(char elf, char mine)
 
     // Nested array, Rock, Paper, Scissors values to map to
     // Lose Draw Win
-    char gameMap[][3] = { 
-        {'Z', 'X', 'Y'}, // Rock
-        {'X', 'Y', 'Z'}, // Paper
-        {'Y', 'Z', 'X'} }; // Scissors
+    char gameMap[][3] = {
+        {'C', 'A', 'B'},  // Rock
+        {'A', 'B', 'C'},  // Paper
+        {'B', 'C', 'A'}}; // Scissors
 
     // Map me to the correct value.
     // X means lose
     // Y means draw
     // Z means win
     return gameMap[elf - 'A'][mine - 'X'];
+}
+
+int calculateRockPaperScissors(char elf, char me)
+{
+    // Calculate the points
+    int points = 0;
+
+    int choicePointsMap[3] = {1, 2, 3};
+    int gamePointsMap[][3] = {{3, 6, 0}, {0, 3, 6}, {6, 0, 3}};
+
+    points += choicePointsMap[me - 'A'];
+    points += gamePointsMap[elf - 'A'][me - 'A'];
+
+    return points;
 }
 
 /**
@@ -86,52 +100,7 @@ int rps(char elf, char mine)
 
     std::cout << "Elf: " << elf << " Me: " << me << std::endl;
 
-    if (elf == 'A')
-    {
-        if (me == 'X')
-        {
-            return 3 + 1;
-        }
-        else if (me == 'Y')
-        {
-            return 6 + 2;
-        }
-        else if (me == 'Z')
-        {
-            return 0 + 3;
-        }
-    }
-    else if (elf == 'B')
-    {
-        if (me == 'X')
-        {
-            return 0 + 1;
-        }
-        else if (me == 'Y')
-        {
-            return 3 + 2;
-        }
-        else if (me == 'Z')
-        {
-            return 6 + 3;
-        }
-    }
-    else if (elf == 'C')
-    {
-        if (me == 'X')
-        {
-            return 6 + 1;
-        }
-        else if (me == 'Y')
-        {
-            return 0 + 2;
-        }
-        else if (me == 'Z')
-        {
-            return 3 + 3;
-        }
-    }
-    return 0;
+    return calculateRockPaperScissors(elf, me);
 }
 
 /**
