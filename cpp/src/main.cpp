@@ -51,20 +51,41 @@ void day1()
     }
 
     std::cout << "Total calories: " << totalCalories << std::endl;
+}
 
+char mapToRPS(char elf, char mine)
+{
+
+    // Nested array, Rock, Paper, Scissors values to map to
+    // Lose Draw Win
+    char gameMap[][3] = { 
+        {'Z', 'X', 'Y'}, // Rock
+        {'X', 'Y', 'Z'}, // Paper
+        {'Y', 'Z', 'X'} }; // Scissors
+
+    // Map me to the correct value.
+    // X means lose
+    // Y means draw
+    // Z means win
+    return gameMap[elf - 'A'][mine - 'X'];
 }
 
 /**
  * @brief This is an ugly implementaiton that decodes the two sets of values.
  * but it is functional and simple to understand....
- * 
- * @param elf 
- * @param me 
- * @return int 
+ *
+ * @param elf
+ * @param me
+ * @return int
  */
-int rps(char elf, char me)
+int rps(char elf, char mine)
 {
+    std::cout << "Elf: " << elf << " Mine: " << mine << std::endl;
+
+    char me = mapToRPS(elf, mine);
+
     std::cout << "Elf: " << elf << " Me: " << me << std::endl;
+
     if (elf == 'A')
     {
         if (me == 'X')
@@ -111,8 +132,12 @@ int rps(char elf, char me)
         }
     }
     return 0;
-
 }
+
+/**
+ * @brief
+ *
+ */
 void day2()
 {
     int totalPoints = 0;
