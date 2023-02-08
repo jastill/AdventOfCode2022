@@ -2,5 +2,6 @@
     "files.associations": {
         "vector": "cpp"
     },
-    "cmake.sourceDirectory": "${workspaceFolder}/day1/cpp"
+    "cmake.sourceDirectory": "${workspaceFolder}/day1/cpp",
+    "C_Cpp.errorSquiggles": "disabled"
 }

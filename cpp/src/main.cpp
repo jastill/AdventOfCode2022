@@ -3,6 +3,7 @@
 #include <algorithm>
 
 #include "Elf.h"
+#include "Backpack.h"
 
 #define TOP_ELVES 3
 
@@ -12,6 +13,7 @@ using namespace std;
 ifstream inputFile;
 
 std::vector<Elf *> elves;
+std::vector<Backpack *> backpacks;
 
 bool compareElves(Elf *e1, Elf *e2)
 {
@@ -20,10 +22,27 @@ bool compareElves(Elf *e1, Elf *e2)
 
 void day3()
 {
+    // Each line is a backpack.
+    // The line is split in half for each compartment
+    Backpack *backpack;
+
+    char line[64];
+    while (inputFile.getline(line, 64))
+    {
+        cout << line << endl;
+        // If the line is empty, it's a new elf.
+        if (line[0] != '\0')
+        {
+            backpack = new Backpack(line);
+            backpacks.push_back(backpack);
+        }
+    }
+
+
 }
+
 int main(int argc, char *argv[])
 {
-
     // Check we have an input file as a parameter
     if (argc != 2)
     {
