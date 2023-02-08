@@ -31,7 +31,12 @@ int Item::getPriority()
     }
     if (this->item >= 'A' && this->item <= 'Z') 
     {
-        return (this->item - 'A') + 1;
+        return (this->item - 'A') + 27;
     }
     return -1;
+}
+
+char Item::getItem()
+{
+    return this->item;
 }

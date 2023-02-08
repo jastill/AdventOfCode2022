@@ -12,4 +12,5 @@ private:
 public:
     Backpack();
     Backpack(char *items);
+    int getCommonItemPriority();
 };

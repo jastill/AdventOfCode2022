@@ -7,7 +7,6 @@ using namespace std;
 
 Backpack::Backpack()
 {
-    cout << "Backpack created" << this << endl;
 }
 
 Backpack::Backpack(char *items)
@@ -24,6 +23,13 @@ Backpack::Backpack(char *items)
     substr = this->contents->substr(len, len);
     compartment = new Compartment(substr);
     this->compartments.push_back(compartment);
+}
 
-    cout << "Backpack created" << this << endl;
+int Backpack::getCommonItemPriority()
+{
+    int priority = 0;
+
+    priority = this->compartments[0]->getCommonItemPriority(this->compartments[1]);
+
+    return priority;
 }

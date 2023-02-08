@@ -25,19 +25,24 @@ void day3()
     // Each line is a backpack.
     // The line is split in half for each compartment
     Backpack *backpack;
+    int priority = 0;
 
     // This is well dodgy coding assuming the line is 64 characters long.
     char line[64];
     while (inputFile.getline(line, 64))
     {
-        cout << line << endl;
         // If the line is empty, it's a new elf.
         if (line[0] != '\0')
         {
             backpack = new Backpack(line);
             backpacks.push_back(backpack);
+
+            priority += backpack->getCommonItemPriority();
+            cout << "Priority: " << priority << endl;
         }
     }
+
+    cout << "Priority: " << priority << endl;
 }
 
 int main(int argc, char *argv[])

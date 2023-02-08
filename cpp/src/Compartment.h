@@ -9,4 +9,5 @@ private:
 public:
     Compartment();
     Compartment(std::string c);
+    int getCommonItemPriority(Compartment *compartment);
 };

@@ -9,4 +9,5 @@ public:
     Item();
     Item(char c);
     int getPriority();
+    char getItem();
 };
