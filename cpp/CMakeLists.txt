@@ -9,4 +9,6 @@ project(AdventOfCode2022
 add_executable(aoc
   src/main.cpp
   src/Backpack.cpp
+  src/Compartment.cpp
+  src/Item.cpp
   src/Elf.cpp)

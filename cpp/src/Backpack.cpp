@@ -1,4 +1,5 @@
 #include "Backpack.h"
+
 #include <iostream>
 #include "stdio.h"
 
@@ -11,16 +12,18 @@ Backpack::Backpack()
 
 Backpack::Backpack(char *items)
 {
-    cout << "Backpack created" << this << endl;
-    this->items = new string(items);
+    this->contents = new string(items);
 
     int len = strlen(items) / 2;
 
-    string substr = this->items->substr(0, len);
-    this->compartment1 = new string(substr);
-    substr = this->items->substr(len, len);
-    this->compartment2 = new string(substr);
+    string substr = this->contents->substr(0, len);
+    Compartment *compartment = new Compartment(substr);
 
-    cout << "Compartment 1: " << *this->compartment1 << endl;
-    cout << "Compartment 2: " << *this->compartment2 << endl;
+    this->compartments.push_back(compartment);
+
+    substr = this->contents->substr(len, len);
+    compartment = new Compartment(substr);
+    this->compartments.push_back(compartment);
+
+    cout << "Backpack created" << this << endl;
 }

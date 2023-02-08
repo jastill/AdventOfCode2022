@@ -1,11 +1,13 @@
 #include <string>
+#include <vector>
+
+#include "Compartment.h"
 
 class Backpack
 {
 private:
-    std::string *items;
-    std::string *compartment1;
-    std::string *compartment2;
+    std::vector<Compartment *> compartments;
+    std::string *contents;
 
 public:
     Backpack();

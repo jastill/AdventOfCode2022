@@ -26,6 +26,7 @@ void day3()
     // The line is split in half for each compartment
     Backpack *backpack;
 
+    // This is well dodgy coding assuming the line is 64 characters long.
     char line[64];
     while (inputFile.getline(line, 64))
     {
@@ -37,8 +38,6 @@ void day3()
             backpacks.push_back(backpack);
         }
     }
-
-
 }
 
 int main(int argc, char *argv[])
