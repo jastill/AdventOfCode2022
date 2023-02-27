@@ -10,5 +10,6 @@ add_executable(aoc
   src/main.cpp
   src/Backpack.cpp
   src/Compartment.cpp
+  src/Comparator.cpp
   src/Item.cpp
   src/Elf.cpp)
