@@ -23,6 +23,15 @@ Elf::Elf(int c)
 }
 
 /**
+ * @brief Construct a new Elf:: Elf object
+ * 
+ * @param b 
+ */
+Elf::Elf(Backpack *b) {
+    this->backpack = b;
+}
+
+/**
  * @brief 
  * 
  * @param rps 
@@ -51,4 +60,8 @@ void Elf::addCalories(int c)
 int Elf::getTotalCalories(void)
 {
     return totalCalories;
+}
+
+Backpack *Elf::getBackpack(void) {
+    return this->backpack;
 }

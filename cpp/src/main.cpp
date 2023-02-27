@@ -20,6 +20,9 @@ bool compareElves(Elf *e1, Elf *e2)
     return e1->getTotalCalories() > e2->getTotalCalories();
 }
 
+/**
+ * Day 3
+ */
 void day3()
 {
     // Each line is a backpack.
@@ -29,22 +32,40 @@ void day3()
 
     // This is well dodgy coding assuming the line is 64 characters long.
     char line[64];
+    // TODO: fix the dodgy coding
     while (inputFile.getline(line, 64))
     {
-        // If the line is empty, it's a new elf.
+        // If the line is empty, it's a new elfs backpack
         if (line[0] != '\0')
         {
             backpack = new Backpack(line);
             backpacks.push_back(backpack);
+            Elf *elf = new Elf(backpack);
 
             priority += backpack->getCommonItemPriority();
-            cout << "Priority: " << priority << endl;
+            cout << "Part 1 Priority: " << priority << endl;
+        }
+
+        // Now part 2, each group of three backpacks has a common value
+        // Every 3 backpacks check for a common value
+        if (backpacks.size() % 3 == 0)
+        {
+            // Check each backpack against the other two
+          char commonChar = Backpack::getCommonItemPriority(backpacks[backpacks.size() - 3], backpacks[backpacks.size() - 2], backpacks[backpacks.size() - 1]);
+          cout << "3 Backpack Common Char: " << commonChar << endl;
         }
     }
 
     cout << "Priority: " << priority << endl;
 }
 
+/**
+ * Main entry point
+ * @param argc Number of command line arguments
+ * @param argv Array of command line arguments
+ *
+ * Requires a single command line argument which is the input file.
+ */
 int main(int argc, char *argv[])
 {
     // Check we have an input file as a parameter

@@ -1,3 +1,6 @@
+#ifndef COMPARTMENT_H
+#define COMPARTMENT_H
+
 #include <vector>
 #include "Item.h"
 
@@ -11,3 +14,5 @@ public:
     Compartment(std::string c);
     int getCommonItemPriority(Compartment *compartment);
 };
+
+#endif

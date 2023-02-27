@@ -1,3 +1,6 @@
+#ifndef ITEM_H
+#define ITEM_H
+
 #include <vector>
 
 class Item
@@ -11,3 +14,5 @@ public:
     int getPriority();
     char getItem();
 };
+
+#endif

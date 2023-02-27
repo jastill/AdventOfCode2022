@@ -1,0 +1,15 @@
+Backpack	Backpack.cpp	/^Backpack::Backpack()$/
+Comparator	Comparator.cpp	/^Comparator::Comparator()$/
+Compartment	Compartment.cpp	/^Compartment::Compartment()$/
+Elf	Elf.cpp	/^Elf::Elf()$/
+Item	Item.cpp	/^Item::Item()$/
+addCalories	Elf.cpp	/^void Elf::addCalories(int c)$/
+addRockPaperScissors	Elf.cpp	/^void Elf::addRockPaperScissors(char rps)$/
+compare	Comparator.cpp	/^int Comparator::compare(Elf *elves[])$/
+compareElves	main.cpp	/^bool compareElves(Elf *e1, Elf *e2)$/
+day3	main.cpp	/^void day3()$/
+getBackpack	Elf.cpp	/^Backpack *Elf::getBackpack(void) {$/
+getCommonItemPriority	Backpack.cpp	/^int Backpack::getCommonItemPriority()$/
+getItem	Item.cpp	/^char Item::getItem()$/
+getPriority	Item.cpp	/^int Item::getPriority()$/
+getTotalCalories	Elf.cpp	/^int Elf::getTotalCalories(void)$/
