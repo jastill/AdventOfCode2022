@@ -3,6 +3,8 @@
 
 #include <vector>
 #include "Item.h"
+#include <string>
+
 
 class Compartment
 {
