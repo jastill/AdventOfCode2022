@@ -48,6 +48,7 @@ int Backpack::getCommonItemPriority()
 
 /**
  * Get Common Item Priority for 3 backpacks
+ * TODO: Change this to use a vector of backpacks
  */
 char Backpack::getCommonItemPriority(Backpack *b1, Backpack *b2, Backpack *b3) {
   // Iterate through each character in the first backpack

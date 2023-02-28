@@ -27,8 +27,6 @@ int Compartment::getCommonItemPriority(Compartment *compartment)
             if (this->items[i]->getItem() == compartment->items[j]->getItem())
             {
                 priority += this->items[i]->getPriority();
-                cout << "Common item: " << this->items[i]->getItem() << endl;
-                cout << "Priority: " << priority << endl;
 
                 return priority;
             }

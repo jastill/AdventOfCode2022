@@ -4,6 +4,7 @@
 
 #include "Elf.h"
 #include "Backpack.h"
+#include "Priority.h"
 
 #define TOP_ELVES 3
 
@@ -17,7 +18,7 @@ std::vector<Backpack *> backpacks;
 
 bool compareElves(Elf *e1, Elf *e2)
 {
-    return e1->getTotalCalories() > e2->getTotalCalories();
+  return e1->getTotalCalories() > e2->getTotalCalories();
 }
 
 /**
@@ -25,38 +26,40 @@ bool compareElves(Elf *e1, Elf *e2)
  */
 void day3()
 {
-    // Each line is a backpack.
-    // The line is split in half for each compartment
-    Backpack *backpack;
-    int priority = 0;
+  // Each line is a backpack.
+  // The line is split in half for each compartment
+  Backpack *backpack;
+  int priority = 0;
+  int priority2 = 0;
 
-    // This is well dodgy coding assuming the line is 64 characters long.
-    char line[64];
-    // TODO: fix the dodgy coding
-    while (inputFile.getline(line, 64))
+  // This is well dodgy coding assuming the line is 64 characters long.
+  char line[64];
+  // TODO: fix the dodgy coding
+  while (inputFile.getline(line, 64))
+  {
+    // If the line is empty, it's a new elfs backpack
+    if (line[0] != '\0')
     {
-        // If the line is empty, it's a new elfs backpack
-        if (line[0] != '\0')
-        {
-            backpack = new Backpack(line);
-            backpacks.push_back(backpack);
-            Elf *elf = new Elf(backpack);
+      backpack = new Backpack(line);
+      backpacks.push_back(backpack);
+      Elf *elf = new Elf(backpack);
 
-            priority += backpack->getCommonItemPriority();
-            cout << "Part 1 Priority: " << priority << endl;
-        }
-
-        // Now part 2, each group of three backpacks has a common value
-        // Every 3 backpacks check for a common value
-        if (backpacks.size() % 3 == 0)
-        {
-            // Check each backpack against the other two
-          char commonChar = Backpack::getCommonItemPriority(backpacks[backpacks.size() - 3], backpacks[backpacks.size() - 2], backpacks[backpacks.size() - 1]);
-          cout << "3 Backpack Common Char: " << commonChar << endl;
-        }
+      priority += backpack->getCommonItemPriority();
     }
 
-    cout << "Priority: " << priority << endl;
+
+    // Now part 2, each group of three backpacks has a common value
+    // Every 3 backpacks check for a common value
+    if (backpacks.size() % 3 == 0)
+    {
+      // Check each backpack against the other two
+      char commonChar = Backpack::getCommonItemPriority(backpacks[backpacks.size() - 3], backpacks[backpacks.size() - 2], backpacks[backpacks.size() - 1]);
+
+      priority2 += Priority::getPriority(commonChar);
+    }
+  }
+  cout << "Part 1 Priority: " << priority << endl;
+  cout << "Part 2 Priority: " << priority2 << endl;
 }
 
 /**
@@ -68,30 +71,30 @@ void day3()
  */
 int main(int argc, char *argv[])
 {
-    // Check we have an input file as a parameter
-    if (argc != 2)
-    {
-        cout << "Usage: " << argv[0] << " <input file>\n";
-        return 1;
-    }
+  // Check we have an input file as a parameter
+  if (argc != 2)
+  {
+    cout << "Usage: " << argv[0] << " <input file>\n";
+    return 1;
+  }
 
-    // Open the input file
-    inputFile.open(argv[1]);
+  // Open the input file
+  inputFile.open(argv[1]);
 
-    // Check the file opened correctly
-    if (!inputFile)
-    {
-        cout << "Could not open file " << argv[1] << endl;
-        return 1;
-    }
+  // Check the file opened correctly
+  if (!inputFile)
+  {
+    cout << "Could not open file " << argv[1] << endl;
+    return 1;
+  }
 
-    day3();
+  day3();
 
-    // Dispose of elves
-    for (int i = 0; i < elves.size(); i++)
-    {
-        delete elves[i];
-    }
+  // Dispose of elves
+  for (int i = 0; i < elves.size(); i++)
+  {
+    delete elves[i];
+  }
 
-    return 0;
+  return 0;
 }
