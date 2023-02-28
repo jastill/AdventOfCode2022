@@ -7,9 +7,10 @@ project(AdventOfCode2022
   HOMEPAGE_URL "https://github.com/jastill/AdventOfCode2022.git")
 
 add_executable(aoc
-  src/main.cpp
   src/Backpack.cpp
   src/Compartment.cpp
   src/Comparator.cpp
   src/Item.cpp
-  src/Elf.cpp)
+  src/Elf.cpp
+  src/main.cpp
+  src/Priority.cpp)
