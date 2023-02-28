@@ -13,4 +13,5 @@ add_executable(aoc
   src/Item.cpp
   src/Elf.cpp
   src/main.cpp
-  src/Priority.cpp)
+  src/Priority.cpp
+  src/Section.cpp)

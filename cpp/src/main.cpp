@@ -5,6 +5,7 @@
 #include "Elf.h"
 #include "Backpack.h"
 #include "Priority.h"
+#include "Section.h"
 
 #define TOP_ELVES 3
 
@@ -22,44 +23,28 @@ bool compareElves(Elf *e1, Elf *e2)
 }
 
 /**
- * Day 3
+ * Day 4
  */
-void day3()
+void day4()
 {
-  // Each line is a backpack.
-  // The line is split in half for each compartment
-  Backpack *backpack;
-  int priority = 0;
-  int priority2 = 0;
+  
+  // Each line is a range of sections
+  // The line is split in half for each section
 
-  // This is well dodgy coding assuming the line is 64 characters long.
-  char line[64];
-  // TODO: fix the dodgy coding
-  while (inputFile.getline(line, 64))
+  string line;
+  while (inputFile.getline(line, 1000))
   {
     // If the line is empty, it's a new elfs backpack
     if (line[0] != '\0')
     {
-      backpack = new Backpack(line);
-      backpacks.push_back(backpack);
-      Elf *elf = new Elf(backpack);
+      // A line is two ranges split by a comma
+      // e.g. 1-3, 5-7
 
-      priority += backpack->getCommonItemPriority();
     }
 
 
-    // Now part 2, each group of three backpacks has a common value
-    // Every 3 backpacks check for a common value
-    if (backpacks.size() % 3 == 0)
-    {
-      // Check each backpack against the other two
-      char commonChar = Backpack::getCommonItemPriority(backpacks[backpacks.size() - 3], backpacks[backpacks.size() - 2], backpacks[backpacks.size() - 1]);
-
-      priority2 += Priority::getPriority(commonChar);
-    }
   }
-  cout << "Part 1 Priority: " << priority << endl;
-  cout << "Part 2 Priority: " << priority2 << endl;
+  cout << "Day 4 overlapping" << endl;
 }
 
 /**
@@ -88,7 +73,7 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  day3();
+  day4();
 
   // Dispose of elves
   for (int i = 0; i < elves.size(); i++)
