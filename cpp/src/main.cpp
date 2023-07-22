@@ -27,7 +27,7 @@ bool compareElves(Elf *e1, Elf *e2)
  */
 void day4()
 {
-  
+
   // Each line is a range of sections
   // The line is split in half for each section
 
@@ -40,9 +40,21 @@ void day4()
       // A line is two ranges split by a comma
       // e.g. 1-3, 5-7
 
+      vector <string> tokens;
+      stringstream ss(line);
+
+      string intermediate;
+
+      while(getline(ss, line, ','))
+      {
+        tokens.push_back(intermediate);
+      }
+
+      // Printing the token vector
+      for(int i = 0; i < tokens.size(); i++)
+        cout << tokens[i] << '\n';
+
     }
-
-
   }
   cout << "Day 4 overlapping" << endl;
 }
